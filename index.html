@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xwork - Freelance Platform</title>
+    <style>
+        /* CSS for futuristic and advanced UI */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0d1b2a, #1b263b);
+            color: #e0e1dd;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            background: rgba(11, 26, 44, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00d4ff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 40px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #e0e1dd;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #00d4ff;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('https://source.unsplash.com/random/1920x1080?tech') no-repeat center/cover;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content {
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #00d4ff;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .cta-btn {
+            padding: 15px 40px;
+            background: #00d4ff;
+            color: #0d1b2a;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.7);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 50px;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 3rem;
+            margin-bottom: 60px;
+            color: #00d4ff;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: rgba(27, 38, 59, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #00d4ff;
+        }
+
+        /* Jobs Section */
+        .jobs {
+            padding: 100px 50px;
+            background: #0d1b2a;
+        }
+
+        .jobs h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: #00d4ff;
+        }
+
+        .job-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .job-card {
+            background: rgba(27, 38, 59, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+        }
+
+        .job-card h3 {
+            font-size: 1.5rem;
+            color: #00d4ff;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 50px;
+            text-align: center;
+            background: #0b1a2c;
+        }
+
+        footer p {
+            font-size: 1.1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">Xwork</div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#jobs">Jobs</a></li>
+                <li><a href="#knowledge">Knowledge</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content fade-in">
+            <h1>Welcome to Xwork</h1>
+            <p>Connect with top freelancers and clients in a futuristic marketplace designed for success.</p>
+            <button class="cta-btn">Get Started</button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <h2>Why Choose Xwork?</h2>
+        <div class="feature-grid">
+            <div class="feature-card fade-in">
+                <h3>Advanced Matching</h3>
+                <p>Our AI-powered system connects you with the perfect freelancer or project.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <h3>Secure Payments</h3>
+                <p>Fast, reliable, and secure transactions with escrow protection.</p>
+            </div>
+            <div class="feature-card fade-in">
+                <h3>Global Talent</h3>
+                <p>Access a diverse pool of skilled professionals from around the world.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section class="jobs" id="jobs">
+        <h2>Explore Jobs</h2>
+        <div class="job-list">
+            <div class="job-card fade-in">
+                <h3>Web Developer Needed</h3>
+                <p>Build a responsive website for a startup. Budget: $1,500. Duration: 2 weeks.</p>
+            </div>
+            <div class="job-card fade-in">
+                <h3>Graphic Designer</h3>
+                <p>Create branding assets for a new product. Budget: $800. Duration: 1 week.</p>
+            </div>
+            <div class="job-card fade-in">
+                <h3>Content Writer</h3>
+                <p>Write SEO-optimized blog posts. Budget: $500. Duration: 10 days.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Section -->
+    <section class="features" id="knowledge">
+        <h2>The Future of Freelancing</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>Growth Potential</h3>
+                <p>Freelancing is projected to dominate the workforce by 2030, with over 50% of professionals choosing this path. Platforms like Xwork are at the forefront, offering opportunities for financial independence and career flexibility.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Life-Changing Impact</h3>
+                <p>Freelancing allows you to work from anywhere, set your own hours, and pursue projects you’re passionate about. It’s not just a job—it’s a lifestyle revolution.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Economic Shift</h3>
+                <p>As companies increasingly rely on freelancers for specialized skills, the gig economy is reshaping how we view work, offering unparalleled freedom and scalability.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Please created by LVS Group</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Button hover effect
+        const btn = document.querySelector('.cta-btn');
+        btn.addEventListener('mouseover', () => {
+            btn.style.background = '#ff007a';
+        });
+        btn.addEventListener('mouseout', () => {
+            btn.style.background = '#00d4ff';
+        });
+
+        // Lazy loading animation for cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        });
+
+        document.querySelectorAll('.feature-card, .job-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
